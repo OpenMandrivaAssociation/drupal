@@ -1,9 +1,9 @@
 Name:           drupal
-Version:        5.1
+Version:        5.2
 Release:        %mkrel 1
 Epoch:          0
-Source0:        http://ftp.osuosl.org/pub/drupal/files/projects/drupal-5.1.tar.gz
-Source1:        http://ftp.osuosl.org/pub/drupal/files/projects/biblio-5.x-1.1.tar.gz
+Source0:        http://ftp.osuosl.org/pub/drupal/files/projects/drupal-%{version}.tar.gz
+Source1:        http://ftp.osuosl.org/pub/drupal/files/projects/biblio-5.x-1.4.tar.gz
 Source2:        http://ftp.osuosl.org/pub/drupal/files/projects/conference-5.x-1.x-dev.tar.gz
 Summary:        Open source content management platform
 URL:            http://www.drupal.org/
@@ -98,5 +98,3 @@ EOF
 %attr(660,root,apache) %config(noreplace) %{_sysconfdir}/drupal/settings.php
 %attr(640,root,apache) %config(noreplace) %{_sysconfdir}/drupal/robots.txt
 %config(noreplace) %{_webappconfdir}/drupal.conf
-
-
