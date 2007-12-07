@@ -7,11 +7,12 @@ Source1:        http://ftp.osuosl.org/pub/drupal/files/projects/biblio-5.x-1.4.t
 Source2:        http://ftp.osuosl.org/pub/drupal/files/projects/conference-5.x-1.x-dev.tar.gz
 Summary:        Open source content management platform
 URL:            http://www.drupal.org/
-License:        GPL
+License:        GPLv2+
 Group:          Networking/WWW
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:       apache
-Requires:       mod_php
+Requires:       apache-mod_php
+Requires:	php-xml
 Requires(post): rpm-helper
 Requires(postun): rpm-helper
 BuildArch:      noarch
