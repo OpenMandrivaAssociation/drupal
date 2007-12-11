@@ -13,6 +13,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:       apache
 Requires:       apache-mod_php
 Requires:	php-xml
+Requires:	php-mbstring
 Requires(post): rpm-helper
 Requires(postun): rpm-helper
 BuildArch:      noarch
