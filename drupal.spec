@@ -9,6 +9,7 @@ Summary:        Open source content management platform
 URL:            http://www.drupal.org/
 License:        GPLv2+
 Group:          Networking/WWW
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:       apache
 Requires:       apache-mod_php
 Requires:	php-xml
