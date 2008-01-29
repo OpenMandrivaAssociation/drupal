@@ -1,5 +1,5 @@
 Name:           drupal
-Version:        5.6
+Version:        5.7
 Release:        %mkrel 1
 Epoch:          0
 Source0:        http://ftp.osuosl.org/pub/drupal/files/projects/drupal-%{version}.tar.gz
