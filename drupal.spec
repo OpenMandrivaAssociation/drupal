@@ -11,8 +11,8 @@ License:        GPLv2+
 Group:          Networking/WWW
 Requires:       apache
 Requires:       apache-mod_php
-Requires:	php-xml
-Requires:	php-mbstring
+Requires:       php-xml
+Requires:       php-mbstring
 Requires(post): rpm-helper
 Requires(postun): rpm-helper
 BuildArch:      noarch
@@ -47,7 +47,7 @@ have used Drupal to power scores of different web sites, including
 %{__tar} xf %{SOURCE2} -C %{buildroot}%{_var}/www/drupal/modules
 
 %{__mkdir_p} %{buildroot}%{_sysconfdir}/drupal
-%{__mv} %{buildroot}%{_var}/www/drupal/sites/default/settings.php \
+%{__mv} %{buildroot}%{_var}/www/drupal/sites/default/default.settings.php \
   %{buildroot}%{_sysconfdir}/drupal/settings.php
 (cd %{buildroot}%{_var}/www/drupal/sites/default && \
   %{__ln_s} %{_sysconfdir}/drupal/settings.php settings.php)
