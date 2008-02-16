@@ -1,15 +1,14 @@
 Name:           drupal
-Version:        5.7
+Version:        6.0
 Release:        %mkrel 1
 Epoch:          0
-Source0:        http://ftp.osuosl.org/pub/drupal/files/projects/drupal-%{version}.tar.gz
-Source1:        http://ftp.osuosl.org/pub/drupal/files/projects/biblio-5.x-1.4.tar.gz
-Source2:        http://ftp.osuosl.org/pub/drupal/files/projects/conference-5.x-1.x-dev.tar.gz
+Source0:        http://ftp.drupal.org/pub/drupal/files/projects/drupal-%{version}.tar.gz
+Source1:        http://ftp.drupal.org/pub/drupal/files/projects/biblio-5.x-1.4.tar.gz
+Source2:        http://ftp.drupal.org/pub/drupal/files/projects/conference-5.x-1.x-dev.tar.gz
 Summary:        Open source content management platform
 URL:            http://www.drupal.org/
 License:        GPLv2+
 Group:          Networking/WWW
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:       apache
 Requires:       apache-mod_php
 Requires:	php-xml
@@ -17,6 +16,7 @@ Requires:	php-mbstring
 Requires(post): rpm-helper
 Requires(postun): rpm-helper
 BuildArch:      noarch
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Drupal is a free software package that allows an individual or a 
