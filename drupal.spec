@@ -1,10 +1,9 @@
 Name:           drupal
-Version:        6.0
+Version:        6.1
 Release:        %mkrel 1
 Epoch:          0
-Source0:        http://ftp.drupal.org/pub/drupal/files/projects/drupal-%{version}.tar.gz
-Source1:        http://ftp.drupal.org/pub/drupal/files/projects/biblio-5.x-1.4.tar.gz
-Source2:        http://ftp.drupal.org/pub/drupal/files/projects/conference-5.x-1.x-dev.tar.gz
+Source0:        http://ftp.osuosl.org/pub/drupal/files/projects/%name-%version.tar.gz
+Source1:        http://ftp.drupal.org/files/projects/biblio-6.x-1.0-beta3.tar.gz
 Summary:        Open source content management platform
 URL:            http://www.drupal.org/
 License:        GPLv2+
@@ -44,7 +43,6 @@ have used Drupal to power scores of different web sites, including
 %{__mkdir_p} %{buildroot}%{_var}/www/drupal
 %{__cp} -a * %{buildroot}%{_var}/www/drupal
 %{__tar} xf %{SOURCE1} -C %{buildroot}%{_var}/www/drupal/modules
-%{__tar} xf %{SOURCE2} -C %{buildroot}%{_var}/www/drupal/modules
 
 %{__mkdir_p} %{buildroot}%{_sysconfdir}/drupal
 %{__mv} %{buildroot}%{_var}/www/drupal/sites/default/default.settings.php \
