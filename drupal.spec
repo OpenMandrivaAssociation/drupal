@@ -4,6 +4,7 @@ Release:        %mkrel 1
 Epoch:          0
 Source0:        http://ftp.osuosl.org/pub/drupal/files/projects/%name-%version.tar.gz
 Source1:        http://ftp.drupal.org/files/projects/biblio-6.x-1.0-beta3.tar.gz
+Patch0:		drupal-6.2-baseurl.patch
 Summary:        Open source content management platform
 URL:            http://www.drupal.org/
 License:        GPLv2+
@@ -35,6 +36,7 @@ have used Drupal to power scores of different web sites, including
 
 %prep
 %setup -q 
+%patch0 -p0
 
 %build
 
@@ -44,14 +46,9 @@ have used Drupal to power scores of different web sites, including
 %{__cp} -a * %{buildroot}%{_var}/www/drupal
 %{__tar} xf %{SOURCE1} -C %{buildroot}%{_var}/www/drupal/modules
 
-%{__mkdir_p} %{buildroot}%{_sysconfdir}/drupal
-%{__mv} %{buildroot}%{_var}/www/drupal/sites/default/default.settings.php \
-  %{buildroot}%{_sysconfdir}/drupal/settings.php
-(cd %{buildroot}%{_var}/www/drupal/sites/default && \
-  %{__ln_s} %{_sysconfdir}/drupal/settings.php settings.php)
-
 %{__rm} %{buildroot}%{_var}/www/drupal/*.txt
 
+%{__mkdir_p} %{buildroot}%{_sysconfdir}/drupal
 %{__cat} > %{buildroot}%{_sysconfdir}/drupal/robots.txt << EOF
 User-agent: *
 Disallow:   /
@@ -95,6 +92,5 @@ EOF
 %{_var}/www/drupal/sites
 %{_var}/www/drupal/themes
 %attr(710,root,apache) %dir %{_sysconfdir}/drupal
-%attr(660,root,apache) %config(noreplace) %{_sysconfdir}/drupal/settings.php
 %attr(640,root,apache) %config(noreplace) %{_sysconfdir}/drupal/robots.txt
 %config(noreplace) %{_webappconfdir}/drupal.conf
