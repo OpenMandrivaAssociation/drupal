@@ -1,6 +1,6 @@
 Name:           drupal
 Version:        6.3
-Release:        %mkrel 1
+Release:        %mkrel 2
 Epoch:          0
 Source0:        http://ftp.osuosl.org/pub/drupal/files/projects/%name-%version.tar.gz
 Source1:        http://ftp.drupal.org/files/projects/biblio-6.x-1.0-beta3.tar.gz
@@ -44,6 +44,7 @@ have used Drupal to power scores of different web sites, including
 %{__rm} -rf %{buildroot}
 %{__mkdir_p} %{buildroot}%{_var}/www/drupal
 %{__cp} -a * %{buildroot}%{_var}/www/drupal
+%{__cp} .htaccess %{buildroot}%{_var}/www/drupal
 %{__tar} xf %{SOURCE1} -C %{buildroot}%{_var}/www/drupal/modules
 
 %{__rm} %{buildroot}%{_var}/www/drupal/*.txt
@@ -81,6 +82,7 @@ EOF
 %defattr(0644,root,root,0755)
 %doc *.txt
 %dir %{_var}/www/drupal
+%config(noreplace) %{_var}/www/drupal/.htaccess
 %{_var}/www/drupal/*.php
 %{_var}/www/drupal/*.txt
 %{_var}/www/drupal/includes
