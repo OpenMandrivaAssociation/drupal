@@ -4,7 +4,7 @@ Release:        %mkrel 1
 Epoch:          0
 Source0:        http://ftp.osuosl.org/pub/drupal/files/projects/%name-%version.tar.gz
 Source1:        http://ftp.drupal.org/files/projects/biblio-6.x-1.0-beta8.tar.gz
-Patch0:		drupal-6.2-baseurl.patch
+Patch0:		drupal-6.7-baseurl.patch
 Summary:        Open source content management platform
 URL:            http://www.drupal.org/
 License:        GPLv2+
