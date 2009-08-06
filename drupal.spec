@@ -1,6 +1,6 @@
 Name:           drupal
 Version:        6.13
-Release:        %mkrel 2
+Release:        %mkrel 3
 Epoch:          0
 Source0:        http://ftp.osuosl.org/pub/drupal/files/projects/%name-%version.tar.gz
 Source1:        http://ftp.drupal.org/files/projects/biblio-6.x-1.4.tar.gz
@@ -16,6 +16,7 @@ Requires:       php-mbstring
 Requires:	php-gd
 Requires(post): rpm-helper
 Requires(postun): rpm-helper
+Suggests:	drupal-database-storage
 BuildArch:      noarch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
@@ -34,6 +35,36 @@ have used Drupal to power scores of different web sites, including
     * E-commerce applications
     * Resource directories
     * Social Networking sites
+
+%package mysql
+Summary: mysql storage of druapl
+Provides: drupal-database-storage
+Requires; php-mysql
+Requires: mysql
+
+%description mysql
+This package provides virtual requries of using mysql as storage backend
+for drupal.
+
+%package mysqli
+Summary: mysqli storage of druapl
+Provides: drupal-database-storage
+Requires: php-mysqli
+Requires: mysql
+
+%description mysqli
+This package provides virtual requries of using mysqli as storage backend
+for drupal.
+
+%package postgresql
+Summary: postgresql storage of drupal
+Provides: drupal-database-storage
+Requires: php-pgsql
+Requires: postgresql-virtual
+
+%description postgresql
+This package provides virtual requries of using postgresql as storage backend
+for drupal.
 
 %prep
 %setup -q 
@@ -86,3 +117,12 @@ cp .htaccess %{buildroot}%{_webappconfdir}/drupal.conf
 %attr(710,root,apache) %dir %{_sysconfdir}/drupal
 %attr(640,root,apache) %config(noreplace) %{_sysconfdir}/drupal/robots.txt
 %config(noreplace) %{_webappconfdir}/drupal.conf
+
+%package mysql
+%defattr(-,root,root)
+
+%package mysqli
+%defattr(-,root,root)
+
+%package postgresql
+%defattr(-,root,root)
