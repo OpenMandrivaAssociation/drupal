@@ -1,6 +1,6 @@
 Name:           drupal
 Version:        6.13
-Release:        %mkrel 3
+Release:        %mkrel 4
 Epoch:          0
 Source0:        http://ftp.osuosl.org/pub/drupal/files/projects/%name-%version.tar.gz
 Source1:        http://ftp.drupal.org/files/projects/biblio-6.x-1.4.tar.gz
@@ -40,6 +40,7 @@ have used Drupal to power scores of different web sites, including
 Summary: mysql storage of druapl
 Group: Networking/WWW
 Provides: drupal-database-storage
+Requires: drupal = %{version}
 Requires: php-mysql
 Requires: mysql
 
@@ -51,6 +52,7 @@ for drupal.
 Summary: mysqli storage of druapl
 Group: Networking/WWW
 Provides: drupal-database-storage
+Requires: drupal = %{version}
 Requires: php-mysqli
 Requires: mysql
 
@@ -62,6 +64,7 @@ for drupal.
 Summary: postgresql storage of drupal
 Group: Networking/WWW
 Provides: drupal-database-storage
+Requires: drupal = %{version}
 Requires: php-pgsql
 Requires: postgresql-virtual
 
