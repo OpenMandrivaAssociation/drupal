@@ -1,6 +1,6 @@
 Name:           drupal
 Version:        6.13
-Release:        %mkrel 1
+Release:        %mkrel 2
 Epoch:          0
 Source0:        http://ftp.osuosl.org/pub/drupal/files/projects/%name-%version.tar.gz
 Source1:        http://ftp.drupal.org/files/projects/biblio-6.x-1.4.tar.gz
@@ -13,6 +13,7 @@ Requires:       apache
 Requires:       apache-mod_php
 Requires:       php-xml
 Requires:       php-mbstring
+Requires:	php-gd
 Requires(post): rpm-helper
 Requires(postun): rpm-helper
 BuildArch:      noarch
@@ -80,7 +81,7 @@ cp .htaccess %{buildroot}%{_webappconfdir}/drupal.conf
 %{_var}/www/drupal/profiles
 %dir %{_var}/www/drupal/scripts
 %attr(0755,root,root) %{_var}/www/drupal/scripts/*
-%{_var}/www/drupal/sites
+%attr(0755,apache,apache) %{_var}/www/drupal/sites
 %{_var}/www/drupal/themes
 %attr(710,root,apache) %dir %{_sysconfdir}/drupal
 %attr(640,root,apache) %config(noreplace) %{_sysconfdir}/drupal/robots.txt
