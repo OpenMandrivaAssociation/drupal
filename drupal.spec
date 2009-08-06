@@ -38,6 +38,7 @@ have used Drupal to power scores of different web sites, including
 
 %package mysql
 Summary: mysql storage of druapl
+Group: Networking/WWW
 Provides: drupal-database-storage
 Requires; php-mysql
 Requires: mysql
@@ -48,6 +49,7 @@ for drupal.
 
 %package mysqli
 Summary: mysqli storage of druapl
+Group: Networking/WWW
 Provides: drupal-database-storage
 Requires: php-mysqli
 Requires: mysql
@@ -58,6 +60,7 @@ for drupal.
 
 %package postgresql
 Summary: postgresql storage of drupal
+Group: Networking/WWW
 Provides: drupal-database-storage
 Requires: php-pgsql
 Requires: postgresql-virtual
