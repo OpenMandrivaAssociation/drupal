@@ -40,7 +40,7 @@ have used Drupal to power scores of different web sites, including
 Summary: mysql storage of druapl
 Group: Networking/WWW
 Provides: drupal-database-storage
-Requires; php-mysql
+Requires: php-mysql
 Requires: mysql
 
 %description mysql
@@ -121,11 +121,11 @@ cp .htaccess %{buildroot}%{_webappconfdir}/drupal.conf
 %attr(640,root,apache) %config(noreplace) %{_sysconfdir}/drupal/robots.txt
 %config(noreplace) %{_webappconfdir}/drupal.conf
 
-%package mysql
+%files mysql
 %defattr(-,root,root)
 
-%package mysqli
+%files mysqli
 %defattr(-,root,root)
 
-%package postgresql
+%files postgresql
 %defattr(-,root,root)
