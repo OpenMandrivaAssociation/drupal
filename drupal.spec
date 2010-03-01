@@ -1,6 +1,6 @@
 Name:           drupal
 Version:        6.15
-Release:        %mkrel 1
+Release:        %mkrel 2
 Epoch:          0
 Source0:        http://ftp.osuosl.org/pub/drupal/files/projects/%name-%version.tar.gz
 Source1:        http://ftp.drupal.org/files/projects/biblio-6.x-1.4.tar.gz
@@ -14,8 +14,10 @@ Requires:       apache-mod_php
 Requires:       php-xml
 Requires:       php-mbstring
 Requires:	php-gd
-Requires(post): rpm-helper
-Requires(postun): rpm-helper
+%if %mdkversion < 201010
+Requires(post):   rpm-helper
+Requires(postun):   rpm-helper
+%endif
 Suggests:	drupal-database-storage
 BuildArch:      noarch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -101,10 +103,14 @@ cp .htaccess %{buildroot}%{_webappconfdir}/drupal.conf
 %{__rm} -rf %{buildroot}
 
 %post
-%{_post_webapp}
+%if %mdkversion < 201010
+%_post_webapp
+%endif
 
 %postun
-%{_postun_webapp}
+%if %mdkversion < 201010
+%_postun_webapp
+%endif
 
 %files
 %defattr(0644,root,root,0755)
