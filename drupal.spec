@@ -1,10 +1,9 @@
 Name:           drupal
-Version:        6.20
+Version:        7.0
 Release:        %mkrel 1
 Epoch:          0
 Source0:        http://ftp.osuosl.org/pub/drupal/files/projects/%name-%version.tar.gz
-Source1:        http://ftp.drupal.org/files/projects/biblio-6.x-1.4.tar.gz
-Patch0:		drupal-6.16-baseurl.patch
+Patch0:		drupal-7.0-baseurl.patch
 Summary:        Open source content management platform
 URL:            http://www.drupal.org/
 License:        GPLv2+
@@ -74,19 +73,27 @@ Requires: postgresql-virtual
 This package provides virtual requries of using postgresql as storage backend
 for drupal.
 
+%package sqlite
+Summary: sqlite storage of druapl
+Group: Networking/WWW
+Provides: drupal-database-storage
+Requires: drupal = %{version}
+Requires: php-sqlite3
+
+%description sqlite
+This package provides virtual requries of using sqlite as storage backend
+for drupal.
+
 %prep
 %setup -q 
 %patch0 -p0
-
-%build
 
 %install
 %{__rm} -rf %{buildroot}
 %{__mkdir_p} %{buildroot}%{_var}/www/drupal
 %{__cp} -a * %{buildroot}%{_var}/www/drupal
-%{__tar} xf %{SOURCE1} -C %{buildroot}%{_var}/www/drupal/modules
 
-%{__rm} %{buildroot}%{_var}/www/drupal/*.txt
+%{__rm} %{buildroot}%{_var}/www/drupal/*.txt %{buildroot}%{_var}/www/drupal/web.config
 
 %{__mkdir_p} %{buildroot}%{_sysconfdir}/drupal
 %{__cat} > %{buildroot}%{_sysconfdir}/drupal/robots.txt << EOF
@@ -137,4 +144,7 @@ cp .htaccess %{buildroot}%{_webappconfdir}/drupal.conf
 %defattr(-,root,root)
 
 %files postgresql
+%defattr(-,root,root)
+
+%files sqlite
 %defattr(-,root,root)
