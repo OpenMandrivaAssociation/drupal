@@ -1,9 +1,9 @@
 Name:           drupal
-Version:        7.0
+Version:        7.2
 Release:        %mkrel 1
 Epoch:          0
 Source0:        http://ftp.osuosl.org/pub/drupal/files/projects/%name-%version.tar.gz
-Patch0:		drupal-7.0-baseurl.patch
+Patch0:		drupal-7.2-baseurl.patch
 Summary:        Open source content management platform
 URL:            http://www.drupal.org/
 License:        GPLv2+
