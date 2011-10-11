@@ -1,5 +1,5 @@
 Name:           drupal
-Version:        7.4
+Version:        7.8
 Release:        %mkrel 1
 Epoch:          0
 Source0:        http://ftp.osuosl.org/pub/drupal/files/projects/%name-%version.tar.gz
@@ -42,23 +42,12 @@ Summary: mysql storage of druapl
 Group: Networking/WWW
 Provides: drupal-database-storage
 Requires: drupal = %{version}
-Requires: php-mysql
+Requires: php-pdo_mysql
 Requires: mysql
+Obsoletes: drupal-mysqli < 0:%{version}
 
 %description mysql
 This package provides virtual requries of using mysql as storage backend
-for drupal.
-
-%package mysqli
-Summary: mysqli storage of druapl
-Group: Networking/WWW
-Provides: drupal-database-storage
-Requires: drupal = %{version}
-Requires: php-mysqli
-Requires: mysql
-
-%description mysqli
-This package provides virtual requries of using mysqli as storage backend
 for drupal.
 
 %package postgresql
@@ -66,7 +55,7 @@ Summary: postgresql storage of drupal
 Group: Networking/WWW
 Provides: drupal-database-storage
 Requires: drupal = %{version}
-Requires: php-pgsql
+Requires: php-pdo_pgsql
 Requires: postgresql-virtual
 
 %description postgresql
@@ -78,7 +67,7 @@ Summary: sqlite storage of druapl
 Group: Networking/WWW
 Provides: drupal-database-storage
 Requires: drupal = %{version}
-Requires: php-sqlite3
+Requires: php-pdo_sqlite
 
 %description sqlite
 This package provides virtual requries of using sqlite as storage backend
@@ -138,9 +127,6 @@ cp .htaccess %{buildroot}%{_webappconfdir}/drupal.conf
 %config(noreplace) %{_webappconfdir}/drupal.conf
 
 %files mysql
-%defattr(-,root,root)
-
-%files mysqli
 %defattr(-,root,root)
 
 %files postgresql
