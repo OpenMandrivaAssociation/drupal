@@ -1,6 +1,6 @@
 Name:           drupal
-Version:        7.8
-Release:        %mkrel 1
+Version:        7.12
+Release:        1
 Epoch:          0
 Source0:        http://ftp.osuosl.org/pub/drupal/files/projects/%name-%version.tar.gz
 Patch0:		drupal-7.2-baseurl.patch
@@ -13,13 +13,8 @@ Requires:       apache-mod_php
 Requires:       php-xml
 Requires:       php-mbstring
 Requires:	php-gd
-%if %mdkversion < 201010
-Requires(post):   rpm-helper
-Requires(postun):   rpm-helper
-%endif
 Suggests:	drupal-database-storage
 BuildArch:      noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Drupal is a free software package that allows an individual or a 
@@ -78,7 +73,6 @@ for drupal.
 %patch0 -p0
 
 %install
-%{__rm} -rf %{buildroot}
 %{__mkdir_p} %{buildroot}%{_var}/www/drupal
 %{__cp} -a * %{buildroot}%{_var}/www/drupal
 
@@ -94,19 +88,6 @@ EOF
 
 %{__mkdir_p} %{buildroot}%{_webappconfdir}
 cp .htaccess %{buildroot}%{_webappconfdir}/drupal.conf
-
-%clean
-%{__rm} -rf %{buildroot}
-
-%post
-%if %mdkversion < 201010
-%_post_webapp
-%endif
-
-%postun
-%if %mdkversion < 201010
-%_postun_webapp
-%endif
 
 %files
 %defattr(0644,root,root,0755)
@@ -127,10 +108,7 @@ cp .htaccess %{buildroot}%{_webappconfdir}/drupal.conf
 %config(noreplace) %{_webappconfdir}/drupal.conf
 
 %files mysql
-%defattr(-,root,root)
 
 %files postgresql
-%defattr(-,root,root)
 
 %files sqlite
-%defattr(-,root,root)
