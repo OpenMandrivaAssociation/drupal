@@ -1,7 +1,6 @@
 Name:           drupal
-Version:        7.12
+Version:        7.14
 Release:        1
-Epoch:          0
 Source0:        http://ftp.osuosl.org/pub/drupal/files/projects/%name-%version.tar.gz
 Patch0:		drupal-7.2-baseurl.patch
 Summary:        Open source content management platform
@@ -35,11 +34,11 @@ have used Drupal to power scores of different web sites, including
 %package mysql
 Summary: mysql storage of druapl
 Group: Networking/WWW
-Provides: drupal-database-storage
+Provides: drupal-database-storage = %{EVRD}
 Requires: drupal = %{version}
 Requires: php-pdo_mysql
 Requires: mysql
-Obsoletes: drupal-mysqli < 0:%{version}
+Obsoletes: drupal-mysqli < %{version}
 
 %description mysql
 This package provides virtual requries of using mysql as storage backend
@@ -48,7 +47,7 @@ for drupal.
 %package postgresql
 Summary: postgresql storage of drupal
 Group: Networking/WWW
-Provides: drupal-database-storage
+Provides: drupal-database-storage = %{EVRD}
 Requires: drupal = %{version}
 Requires: php-pdo_pgsql
 Requires: postgresql-virtual
@@ -60,7 +59,7 @@ for drupal.
 %package sqlite
 Summary: sqlite storage of druapl
 Group: Networking/WWW
-Provides: drupal-database-storage
+Provides: drupal-database-storage = %{EVRD}
 Requires: drupal = %{version}
 Requires: php-pdo_sqlite
 
@@ -74,7 +73,7 @@ for drupal.
 
 %install
 %{__mkdir_p} %{buildroot}%{_var}/www/drupal
-%{__cp} -a * %{buildroot}%{_var}/www/drupal
+cp -a * %{buildroot}%{_var}/www/drupal
 
 %{__rm} %{buildroot}%{_var}/www/drupal/*.txt %{buildroot}%{_var}/www/drupal/web.config
 
