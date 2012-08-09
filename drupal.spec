@@ -1,8 +1,8 @@
 Name:           drupal
-Version:        7.14
+Version:        7.15
 Release:        1
-Source0:        http://ftp.osuosl.org/pub/drupal/files/projects/%name-%version.tar.gz
-Patch0:		drupal-7.2-baseurl.patch
+Source0:        http://ftp.osuosl.org/pub/drupal/files/projects/%{name}-%{version}.tar.gz
+Patch0:		drupal-7.15-baseurl.patch
 Summary:        Open source content management platform
 URL:            http://www.drupal.org/
 License:        GPLv2+
@@ -39,7 +39,6 @@ Requires: drupal = %{version}
 Requires: php-pdo_mysql
 Requires: mysql
 Obsoletes: drupal-mysqli < %{version}
-
 %description mysql
 This package provides virtual requries of using mysql as storage backend
 for drupal.
