@@ -1,5 +1,5 @@
 Name:           drupal
-Version:        7.15
+Version:        7.16
 Release:        1
 Source0:        http://ftp.osuosl.org/pub/drupal/files/projects/%{name}-%{version}.tar.gz
 Patch0:		drupal-7.15-baseurl.patch
