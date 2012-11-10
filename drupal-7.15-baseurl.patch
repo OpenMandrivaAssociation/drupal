@@ -1,0 +1,58 @@
+--- INSTALL.txt.orig	2011-01-01 23:41:24.000000000 +0100
++++ INSTALL.txt	2011-01-08 18:00:34.000000000 +0100
+@@ -114,7 +114,7 @@
+ 4. Run the install script.
+ 
+    To run the install script, point your browser to the base URL of your
+-   website (e.g., http://www.example.com).
++   website (e.g., http://localhost/drupal).
+ 
+    You will be guided through several screens to set up the database, add the
+    site maintenance account (the first user, also known as user/1), and provide
+--- sites/default/default.settings.php.orig	2010-10-12 01:49:48.000000000 +0200
++++ sites/default/default.settings.php	2011-01-08 17:59:51.000000000 +0100
+@@ -232,7 +232,7 @@
+  * It is not allowed to have a trailing slash; Drupal will add it
+  * for you.
+  */
+-# $base_url = 'http://www.example.com';  // NO trailing slash!
++# $base_url = 'http://localhost/drupal';  // NO trailing slash!
+ 
+ /**
+  * PHP settings:
+--- .htaccess.orig	2012-08-01 20:27:42.000000000 +0400
++++ .htaccess	2012-08-09 17:26:56.542498634 +0400
+@@ -1,6 +1,9 @@
+ #
+ # Apache/PHP/Drupal settings:
+ #
++Alias /drupal /var/www/drupal
++
++<Directory /var/www/drupal>
+ 
+ # Protect files and directories from prying eyes.
+ <FilesMatch "\.(engine|inc|info|install|make|module|profile|test|po|sh|.*sql|theme|tpl(\.php)?|xtmpl)$|^(\..*|Entries.*|Repository|Root|Tag|Template)$">
+@@ -19,6 +22,9 @@
+ # Set the default handler.
+ DirectoryIndex index.php index.html index.htm
+ 
++AllowOverride All
++Allow from all
++
+ # Override PHP settings that cannot be changed at runtime. See
+ # sites/default/default.settings.php and drupal_environment_initialize() in
+ # includes/bootstrap.inc for settings that can be changed at runtime.
+@@ -91,7 +97,7 @@
+   # VirtualDocumentRoot and the rewrite rules are not working properly.
+   # For example if your site is at http://example.com/drupal uncomment and
+   # modify the following line:
+-  # RewriteBase /drupal
++  RewriteBase /drupal
+   #
+   # If your site is running in a VirtualDocumentRoot at http://example.com/,
+   # uncomment the following line:
+@@ -129,3 +135,4 @@
+     </FilesMatch>
+   </IfModule>
+ </IfModule>
++</Directory>
