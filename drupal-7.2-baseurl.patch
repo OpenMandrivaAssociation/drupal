@@ -20,8 +20,8 @@
  
  /**
   * PHP settings:
---- .htaccess.orig	2012-08-01 20:27:42.000000000 +0400
-+++ .htaccess	2012-08-09 17:26:56.542498634 +0400
+--- .htaccess.orig	2011-05-25 22:41:42.000000000 +0200
++++ .htaccess	2011-05-29 13:40:22.000000000 +0200
 @@ -1,6 +1,9 @@
  #
  # Apache/PHP/Drupal settings:
@@ -32,7 +32,7 @@
  
  # Protect files and directories from prying eyes.
  <FilesMatch "\.(engine|inc|info|install|make|module|profile|test|po|sh|.*sql|theme|tpl(\.php)?|xtmpl)$|^(\..*|Entries.*|Repository|Root|Tag|Template)$">
-@@ -19,6 +22,9 @@
+@@ -25,6 +28,9 @@
  # Set the default handler.
  DirectoryIndex index.php index.html index.htm
  
@@ -40,9 +40,9 @@
 +Allow from all
 +
  # Override PHP settings that cannot be changed at runtime. See
- # sites/default/default.settings.php and drupal_environment_initialize() in
+ # sites/default/default.settings.php and drupal_initialize_variables() in
  # includes/bootstrap.inc for settings that can be changed at runtime.
-@@ -91,7 +97,7 @@
+@@ -97,7 +103,7 @@
    # VirtualDocumentRoot and the rewrite rules are not working properly.
    # For example if your site is at http://example.com/drupal uncomment and
    # modify the following line:
@@ -51,7 +51,7 @@
    #
    # If your site is running in a VirtualDocumentRoot at http://example.com/,
    # uncomment the following line:
-@@ -129,3 +135,4 @@
+@@ -135,3 +141,4 @@
      </FilesMatch>
    </IfModule>
  </IfModule>
