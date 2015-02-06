@@ -1,6 +1,6 @@
 Name:           drupal
 Version:        7.14
-Release:        2
+Release:        3
 Source0:        http://ftp.osuosl.org/pub/drupal/files/projects/%{name}-%{version}.tar.gz
 Patch0:		drupal-7.2-baseurl.patch
 Summary:        Open source content management platform
