@@ -4,7 +4,7 @@ Release:        3
 Source0:        http://ftp.osuosl.org/pub/drupal/files/projects/%{name}-%{version}.tar.gz
 Patch0:		drupal-7.2-baseurl.patch
 Summary:        Open source content management platform
-URL:            http://www.drupal.org/
+URL:            https://www.drupal.org/
 License:        GPLv2+
 Group:          Networking/WWW
 Requires:       apache
